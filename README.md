@@ -51,18 +51,13 @@ Execute your plugin locally from the command line to verify it is working:
 ```sh
 docker run --rm \
   -e PLUGIN_METHOD=post \
-  -e PLUGIN_URL=http://foo.com \
-  -e PLUGIN_BODY="hello world" \
+  -e PLUGIN_URL=https://postman-echo.com/post \
+  -e PLUGIN_BODY="hello=world" \
   foo/webhook
 ```
 
 Result:
 
 ```
-<head><title>400 Bad Request</title></head>
-<body bgcolor="white">
-<center><h1>400 Bad Request</h1></center>
-<hr><center>nginx/1.10.3 (Ubuntu)</center>
-</body>
-</html>
+{"args":{},"data":"","files":{},"form":{"hello":"world"},"headers":{"host":"postman-echo.com","content-length":"11","accept":"*/*","content-type":"application/x-www-form-urlencoded","user-agent":"curl/7.52.1","x-forwarded-port":"443","x-forwarded-proto":"https"},"json":{"hello":"world"},"url":"https://postman-echo.com/post"}
 ```
